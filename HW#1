@@ -1,0 +1,77 @@
+1.	SELECT ProductID, Name, Color, ListPrice
+FROM Production.Product
+
+2.	SELECT ProductID, Name, Color, ListPrice
+FROM Production.Product
+WHERE ListPrice = 0
+
+3.	SELECT ProductID, Name, Color, ListPrice
+FROM Production.Product
+WHERE Color IS NULL
+
+4.	SELECT ProductID, Name, Color, ListPrice
+FROM Production.Product
+WHERE Color IS NOT NULL
+
+5.	SELECT ProductID, Name, Color, ListPrice
+FROM Production.Product
+WHERE Color IS NOT NULL AND ListPrice > 0
+
+6.	SELECT name, color
+FROM Production.Product
+WHERE color IS NOT NULL
+
+7.	SELECT name+color AS 'Name And Color'
+FROM Production.Product
+WHERE color is not null and
+	name like '%Crankarm%' or name like'%Chainring%'
+  
+8.	SELECT ProductID, Name
+FROM Production.Product
+WHERE ProductID BETWEEN 400 and 500
+
+9.	SELECT ProductID, Name, color
+FROM Production.Product
+WHERE color in ('black', 'blue')
+
+10.	SELECT ProductID, name
+FROM Production.Product
+WHERE name LIKE 's%'
+
+11.	SELECT top(6)name, ListPrice
+FROM Production.Product
+WHERE name like ('s%')
+ORDER BY name
+
+12.	SELECT top(5)name, ListPrice
+FROM Production.Product
+WHERE name like ('[as]%')
+ORDER BY name
+
+13.	SELECT name
+FROM Production.Product
+WHERE name like ('[spo][^k]%')
+ORDER BY name
+
+14.	SELECT distinct color
+FROM Production.Product
+ORDER BY color desc
+
+15.	SELECT ProductSubcategoryID,Color 
+FROM Production.Product
+WHERE ProductSubcategoryID is not null and 
+	 Color is not null
+   
+16.SELECT ProductSubCategoryID
+      , LEFT([Name],35) AS [Name]
+      , Color, ListPrice 
+FROM Production.Product
+WHERE (Color NOT IN ('Red','Black') 
+	  AND ProductSubCategoryID = 1)
+      OR ListPrice BETWEEN 1000 AND 2000 
+ORDER BY ProductID
+
+17.	SELECT ProductSubCategoryID,Name,Color,ListPrice
+FROM Production.Product
+WHERE ProductSubCategoryID between 1 and 14  
+ORDER BY ProductSubCategoryID desc
