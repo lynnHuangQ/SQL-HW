@@ -48,15 +48,15 @@ inner join order o on c.cust_id = o.cust_id
 where year(o.order_date)=2002
 group by c.iname
 
--- 2.  The following table is used to store information about companyís personnel:
+-- 2.  The following table is used to store information about company‚Äôs personnel:
 Create table person (id int, firstname varchar(100), lastname varchar(100)) 
---write a query that returns all employees whose last names  start with ìAî.
+--write a query that returns all employees whose last names  start with ‚ÄúA‚Äù.
 select * from person
 where lastname like 'A%'
 
---3.  The information about companyís personnel is stored in the following table:
+--3.  The information about company‚Äôs personnel is stored in the following table:
 Create table person(person_id int primary key, manager_id int null, name varchar(100)not null)
---The filed managed_id contains the person_id of the employeeís manager.
+--The filed managed_id contains the person_id of the employee‚Äôs manager.
 --Please write a query that would return the names of all top managers(an employee who does not have  a manger, and the number of people that report directly to this manager.
 SELECT name FROM person 
 WHERE manager_id IS NULL
@@ -79,7 +79,7 @@ CREATE TABLE Company(
 	name varchar(20),
 	address varchar(20),
 	city varchar(20),
-	country varchar(20),
+	country varchar(20)
 )
 
 CREATE TABLE Division(
@@ -88,6 +88,7 @@ CREATE TABLE Division(
 	address varchar(20),
 	city varchar(20),
 	country varchar(20),
+	companyId int FOREIGN KEY REFERENCES Company(companyId)
 )
 
 CREATE TABLE Contact(
