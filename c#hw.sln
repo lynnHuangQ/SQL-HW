@@ -1,25 +1,74 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{87755505-79A7-4E8B-94CB-38D53AF6C43F}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{87755505-79A7-4E8B-94CB-38D53AF6C43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87755505-79A7-4E8B-94CB-38D53AF6C43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87755505-79A7-4E8B-94CB-38D53AF6C43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87755505-79A7-4E8B-94CB-38D53AF6C43F}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DD19B802-F9BD-4E28-8A04-16382823F239}
-	EndGlobalSection
-EndGlobal
+
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        //1.find the factorial of a number, 6! = 6x5x4x3x2x1
+        public int fact(int a)
+        {
+            int result = a;
+            for (int i = a-1;  i>=1; i--)
+            {
+                result *= i;
+            }
+            return result;
+        }
+        //2. if a number is prime or not
+        public void prime(int a) 
+        {
+            bool result = true;
+            for (int i = 2; i < a / 2; i++)
+            {
+                if (a % i == 0)
+                {
+                    result = false;
+                    break;
+                }
+            }
+            Console.WriteLine(result);
+        }
+        //3.if a year is leap or not
+        public void leap(int year)
+        {
+            bool result = false;
+            if (year % 400 == 0) result = true;
+            else if (year % 100 == 0) result = false;
+            else if (year % 4 == 0) result = true;
+            else result = false;
+            if (result == true) Console.WriteLine("leap year");
+            if (result == false) Console.WriteLine("not leap year");
+        }
+        //4.LCM of 2 number
+        public void lcm(int a, int b)
+        {
+            int f = a;
+            int s = b;
+            while (s != 0)//find the GCD of a,b
+            {
+                int t = s;
+                s = f % s;
+                f = t;
+            }
+            int result = (a / f) * b;
+            Console.WriteLine(result);
+        }
+
+        static void Main(string[] args)
+        {
+            Program fac = new Program();
+            int factor = fac.fact(6);
+            Console.WriteLine(factor);
+
+            Program p = new Program();
+            p.prime(3);
+
+            Program l = new Program();
+            l.leap(2021);
+
+            Program m = new Program();
+            m.lcm(4,6);
+        }
+    }
+}
