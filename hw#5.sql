@@ -76,7 +76,7 @@ WHERE manager_id IS NULL
 
 CREATE TABLE Company(
 	companyId int primary key,
-	name varchar(20),
+	name varchar(20) not null,
 	address varchar(20),
 	city varchar(20),
 	country varchar(20)
@@ -84,7 +84,7 @@ CREATE TABLE Company(
 
 CREATE TABLE Division(
 	divisionId int primary key,
-	name varchar(20),
+	name varchar(20)not null,
 	address varchar(20),
 	city varchar(20),
 	country varchar(20),
@@ -93,7 +93,7 @@ CREATE TABLE Division(
 
 CREATE TABLE Contact(
 	contactID int primary key,
-	name varchar(20),
+	name varchar(20)not null,
 	address varchar(20),
 	city varchar(20),
 	country varchar(20)
